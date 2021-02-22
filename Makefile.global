@@ -1,0 +1,30 @@
+CFLAGS = -march=r4000 -O3 -g -mgp32 -fomit-frame-pointer -mlong32 -Wall -c -o $@
+CXXFLAGS = -march=r4000 -O3 -g -mgp32 -fomit-frame-pointer -mlong32 -Wall -c -o $@
+ASFLAGS = -march=r4000 -O -g -mgp32 -xassembler -c -o $@
+LDFLAGS = -s -O0 -M -Ttext 8900000 -q -o out
+
+FLAGINCS = -I..\include -I..\api-include
+FLAGLIBS = -L..\lib
+
+$(LIBRARY): $(OBJECTS)
+	ee-ar cru $(LIBRARY) $(OBJECTS)
+	ee-ranlib $(LIBRARY)
+
+$(PROJECT): $(OBJECTS)
+	ee-ld $(LDFLAGS) $(FLAGLIBS) $(OBJECTS) $(LIBRARYS) > $(PROJECT).map
+	outpatch
+	elf2pbp outp "$(TITLE)"
+	mv EBOOT.PBP ..\bin
+
+%.o : %.c
+	ee-gcc $(CFLAGS) $(FLAGINCS) $<
+
+%.o : %.cpp
+	ee-g++ $(CXXFLAGS) $(FLAGINCS) $<
+
+%.o : %.S
+	ee-gcc $(CFLAGS) $(FLAGINCS) $<
+
+%.o : %.s
+	ee-gcc $(ASFLAGS) $<
+

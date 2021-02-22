@@ -1,0 +1,114 @@
+********************************************************************************
+
+csd library for PSP
+
+********************************************************************************
+
+更新履歴
+
+  2005/06/12 Version 1.02 ・lib_c追加
+                          ・libcsd修正
+
+                          ------------------------------------------------------
+
+                          lib_c
+
+                          ＜string＞
+                          ・strcspn, strncpy, strspn を追加した。
+
+                          ------------------------------------------------------
+
+                          libcsd
+
+                          ＜stype＞
+                          ・リンク時にエラーとなっていたので修正した。
+
+  ------------------------------------------------------------------------------
+
+  2005/06/09 Version 1.01 ・lib_c修正
+                          ・libcsd追加、修正
+
+                          ------------------------------------------------------
+
+                          lib_c
+
+                          ＜stdio＞
+                          ・sprintf, vsprintf のフォーマット指定で、タイプをsに
+                            指定した場合に変換できる文字列の長さが短かったので
+                            長くした。
+
+                          ＜string＞
+                          ・strcmp, stricmp で文字列s2の長さより文字列s1の
+                            長さが短い場合の戻り値が違っていたので修正した。
+
+                          ------------------------------------------------------
+
+                          libcsd
+
+                          ＜msio＞
+                          ・ms_ftell, ms_rewind を追加した。
+                          ・ms_fprintf, ms_fputs, ms_fread, ms_fwrite の処理に
+                            時間が掛かり過ぎていたので、速く処理できるように
+                            変更した。
+                          ・ms_fprintf のフォーマット指定で、タイプをsに
+                            指定した場合に変換できる文字列の長さが短かったので
+                            長くした。
+                          ・ms_fgets でファイルの終端に達した場合にバッファsの
+                            末尾にヌル文字を付加していなかったので修正した。
+
+  ------------------------------------------------------------------------------
+
+  2005/06/03 Version 1.00 ・リリース
+                          ・lib_c作成
+                          ・libcsd作成
+
+                          ------------------------------------------------------
+
+                          lib_c
+
+                          ＜ctype＞
+                          ・isalnum, isalpha, isascii, iscntrl, isdigit,
+                            isgraph, islower, isprint, ispunct, isspace,
+                            isupper, isxdigit, toascii, tolower, toupper,
+                            _tolower, _toupper を追加した。
+
+                          ＜stdio＞
+                          ・sprintf, vsprintf を追加した。
+
+                          ＜stdlib＞
+                          ・atoi, atol, strtol, strtoul を追加した。
+
+                          ＜string＞
+                          ・memcmp, memcpy, memset, strcat, strchr, strcmp
+                            strcpy, stricmp, strlen, strlwr, strrchr, strupr を
+                            追加した。
+
+                          ------------------------------------------------------
+
+                          libcsd
+
+                          ＜msio＞
+                          ・ms_fclose, ms_fgetc, ms_fgets, ms_fopen,
+                            ms_fprintf, ms_fputc, ms_fputs, ms_fread,
+                            ms_freopen, ms_fseek, ms_fwrite, ms_remove,
+                            ms_rename を追加した。
+
+                          ＜inifile＞
+                          ・ini_open, ini_close, ini_writeinteger,
+                            ini_writelong, ini_writestring, ini_readinteger,
+                            ini_readlong, ini_readstring を追加した。
+
+                          ＜jctype＞
+                          ・iskmoji, iskpun, iskana, isalkana, ispnkana,
+                            isalnmkana, isprkana, isgrkana, isjis, issjis1,
+                            issjis2, iskuten1, iskuten2, jisjis, jissjis,
+                            jiskuten, jisl0, jisl1, jisl2, jisalpha, jisupper,
+                            jislower, jisdigit, jiskana, jishira, jiskigou,
+                            jisspace, sjistojis, jistosjis, jistokuten,
+                            kutentojis, sjistokuten, kutentosjis を追加した。
+
+                          ＜stype＞
+                          ・mischar, misrange, misxrange, sischar, sisrange,
+                            sisxrange, ttostr, strtot, strltrim, strrtrim,
+                            strtrim, strleft, strmid, strright を追加した。
+
